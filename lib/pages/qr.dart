@@ -34,7 +34,6 @@ class _QrState extends State<QRCodeReader> {
       }
   }
 
-
   @override
   Widget build(BuildContext context) {
     if(result != null ){
