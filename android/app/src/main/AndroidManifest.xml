@@ -24,7 +24,7 @@
      </intent>
    </queries>
    <application
-        android:label="fast_qr"
+        android:label="QuickQR"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
