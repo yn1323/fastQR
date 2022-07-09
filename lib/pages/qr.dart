@@ -30,7 +30,7 @@ class _QrState extends State<QRCodeReader> {
   Future<void> launchURL(String code) async{
     Uri url = Uri.parse(code);
       if (await canLaunchUrl(url)) {
-        launchUrl(url);
+        launchUrl(url, mode: LaunchMode.externalApplication);
       }
   }
 
