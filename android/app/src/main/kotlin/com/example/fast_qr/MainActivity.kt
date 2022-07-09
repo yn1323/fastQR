@@ -1,4 +1,4 @@
-package com.example.fast_qr
+package com.croissantlab.quickqr
 
 import io.flutter.embedding.android.FlutterActivity
 

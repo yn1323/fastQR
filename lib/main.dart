@@ -11,11 +11,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Quick QR',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Qr(title: 'Flutter Demo Home Page'),
+      home: QRCodeReader(),
     );
   }
 }
