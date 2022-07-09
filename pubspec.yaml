@@ -55,6 +55,23 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+flutter_native_splash:
+  color: '#add8e6'
+  image: 'assets/qr.png'
+  color_dark: '#262626'
+  image_dark: 'assets/qr.png'
+  fullscreen: true
+  android_12:
+    icon_background_color: '#add8e6'
+    image: 'assets/qr_768.png'
+    icon_background_color_dark: '#262626'
+    image_dark: 'assets/qr_768.png'
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/qr.png"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
