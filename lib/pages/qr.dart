@@ -1,5 +1,8 @@
 
+import 'package:fast_qr/AdInterstitial.dart';
 import 'package:fast_qr/imports.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:hive/hive.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +20,27 @@ class _QrState extends State<QRCodeReader> {
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+   InterstitialAd? _interstitialAd;
+  AdInterstitial adInterstitial = AdInterstitial();
+  Box? box;
+
+  @override
+  void initState() {
+    super.initState();
+    checkCount();
+  }
+
+  void checkCount () async{
+    box = await Hive.openBox("hive");
+    if (!box!.containsKey('count')) {
+      box!.put('count', 0);
+    }
+    print('hive Count initialize');
+    print(box!.get('count'));
+    if(box!.get('count') % 5 == 3){
+      adInterstitial.createAd();
+    }
+  }
 
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
@@ -30,6 +54,7 @@ class _QrState extends State<QRCodeReader> {
   Future<void> launchURL(String code) async{
     Uri url = Uri.parse(code);
       if (await canLaunchUrl(url)) {
+        box!.put('count', box!.get('count') + 1);
         launchUrl(url, mode: LaunchMode.externalApplication);
       }
   }
@@ -38,6 +63,13 @@ class _QrState extends State<QRCodeReader> {
   Widget build(BuildContext context) {
     if(result != null ){
       launchURL(result!.code!);
+    }
+    if(box != null){
+      print('hive Count');
+      print(box!.get('count'));
+      if(box!.get('count') % 5 == 3){
+        adInterstitial.createAd();
+      }
     }
 
     return Scaffold(
