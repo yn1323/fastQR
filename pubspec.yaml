@@ -57,20 +57,20 @@ dev_dependencies:
 
 flutter_native_splash:
   color: '#add8e6'
-  image: 'assets/qr.png'
+  image: 'assets/flutter_native_splash.png'
   color_dark: '#262626'
-  image_dark: 'assets/qr.png'
+  image_dark: 'assets/flutter_native_splash.png'
   fullscreen: true
   android_12:
     icon_background_color: '#add8e6'
-    image: 'assets/qr_768.png'
+    image: 'assets/flutter_native_splash.png'
     icon_background_color_dark: '#262626'
-    image_dark: 'assets/qr_768.png'
+    image_dark: 'assets/flutter_native_splash.png'
 
 flutter_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/qr.png"
+  image_path: "assets/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
