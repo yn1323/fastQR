@@ -9,8 +9,8 @@ class AdInterstitial {
   // create interstitial ads
   void createAd() {
     InterstitialAd.load(
-      // adUnitId: 'ca-app-pub-6362026991302319/1961452694',
-      adUnitId: 'ca-app-pub-3940256099942544/1033173712',
+      adUnitId: 'ca-app-pub-6362026991302319/1961452694',
+      // adUnitId: 'ca-app-pub-3940256099942544/1033173712',
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         // 広告が正常にロードされたときに呼ばれます。

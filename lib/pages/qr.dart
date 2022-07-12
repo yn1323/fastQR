@@ -35,9 +35,7 @@ class _QrState extends State<QRCodeReader> {
     if (!box!.containsKey('count')) {
       box!.put('count', 0);
     }
-    print('hive Count initialize');
-    print(box!.get('count'));
-    if(box!.get('count') % 5 == 3){
+    if(box!.get('count') % 3 == 2){
       adInterstitial.createAd();
     }
   }
@@ -54,8 +52,8 @@ class _QrState extends State<QRCodeReader> {
   Future<void> launchURL(String code) async{
     Uri url = Uri.parse(code);
       if (await canLaunchUrl(url)) {
-        box!.put('count', box!.get('count') + 1);
         launchUrl(url, mode: LaunchMode.externalApplication);
+        box!.put('count', box!.get('count') + 1);
       }
   }
 
@@ -63,13 +61,6 @@ class _QrState extends State<QRCodeReader> {
   Widget build(BuildContext context) {
     if(result != null ){
       launchURL(result!.code!);
-    }
-    if(box != null){
-      print('hive Count');
-      print(box!.get('count'));
-      if(box!.get('count') % 5 == 3){
-        adInterstitial.createAd();
-      }
     }
 
     return Scaffold(
